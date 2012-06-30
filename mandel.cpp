@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <vector>
+#include <cstdlib>
 #include "mpi.h"
 
 using namespace std;
@@ -58,7 +59,7 @@ void print_image(vector<vector<int> > &image){
 	}
 }
 
-void master(){
+void master(vector<vector<int> >&image, int slaves){
 	
 	int idle = 0;
 	int row = 0;
@@ -96,7 +97,7 @@ void master(){
 		}
 	}while(idle > 0);
 
-print_image(image);
+//print_image(image);
 }
 
 void slave(){
